@@ -50,7 +50,7 @@ export default function Header() {
                 key={i}
                 className="capitalize border-b pb-2 hover:text-[#034467] transition"
               >
-                {item}
+              <a href={`#${item}`}>{item}</a>
               </li>
             ))}
           </ul>
