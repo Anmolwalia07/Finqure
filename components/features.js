@@ -104,13 +104,13 @@ export default function Features() {
             variants={fadeUp}
             className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
           >
-            Tailored Mortgage Solutions
+            Tailored Solutions
           </motion.h2>
           <motion.p 
             variants={fadeUp}
             className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            We offer specialized mortgage services designed to meet your unique financial needs
+            We offer specialized services designed to meet your unique financial needs
           </motion.p>
           
           <motion.div 
