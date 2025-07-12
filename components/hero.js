@@ -56,6 +56,7 @@ const [copied, setCopied] = useState(false);
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
     >
+     
       <motion.p
         onClick={copyNumber}
         className="text-lg sm:text-xl font-bold tracking-wider text-[#1A3C5D] cursor-pointer "
@@ -63,20 +64,20 @@ const [copied, setCopied] = useState(false);
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.02 }}
       >
-        Call Us : +91 9876781726
+        Call : +91 9876781726
       </motion.p>
-
-      {copied && (
-        <motion.span
-          className="text-sm text-blue-600 font-medium"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          Copied!
-        </motion.span>
-      )}
+      
     </motion.div>
+     <motion.p
+     initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+        className="text-lg sm:text-xl font-bold tracking-wider text-[#1A3C5D] cursor-pointer "
+        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1.02 }}
+      >
+      Advisor : Jaswinder walia
+      </motion.p>
         </div>
 
         {/* Image Section */}

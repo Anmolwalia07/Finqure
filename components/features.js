@@ -175,17 +175,21 @@ export default function Features() {
           transition={{ duration: 0.6, delay: 1 }}
           className="mt-16 bg-gradient-to-r from-[#074B78] to-[#4bc9f7a7]  rounded-2xl p-8 text-center text-white shadow-xl"
         >
-          <h3 className="text-2xl font-bold mb-4">Ready to find your perfect mortgage?</h3>
+          <h3 className="text-2xl font-bold mb-4">Ready to find your perfect Insurance?</h3>
           <p className="text-indigo-100 max-w-2xl mx-auto mb-6">
-            Our mortgage experts are ready to help you navigate the home financing process with personalized solutions.
+            Our experts are ready to help you navigate the home financing process with personalized solutions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-6 py-3 bg-white text-[#074B78] font-medium rounded-lg hover:bg-gray-100 transition-colors">
+            {/* <button className="px-6 py-3 bg-white text-[#074B78] font-medium rounded-lg hover:bg-gray-100 transition-colors">
               Apply Now
-            </button>
-            <button className="px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-white/10 transition-colors">
-              Contact Advisor
-            </button>
+            </button> */}
+            <button
+            onClick={() => window.location.href = 'tel:9876781726'}
+            className="px-6 py-3 bg-transparent border-2 hover:cursor-pointer border-white text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
+          >
+            Contact Advisor
+          </button>
+
           </div>
         </motion.div>
       </div>
