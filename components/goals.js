@@ -42,7 +42,7 @@ export default function Goals() {
   return (
     <motion.div
       ref={ref}
-      id="financial-goals"
+      id="financial goals"
       className="bg-[#EAF3FB] py-16 text-center px-6"
       initial="hidden"
       animate={isInView ? "show" : "hidden"}

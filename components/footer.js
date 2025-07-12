@@ -1,13 +1,18 @@
 "use client"
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   FaFacebookF,
   FaTwitter,
-  FaTelegramPlane,
   FaInstagram
 } from "react-icons/fa";
 
 export default function Footer() {
+  const [email, setEmail] = useState("")
+  const handleSubmit=(e)=>{
+    console.log(email)
+    setEmail("")
+  }
   return (
     <footer className="bg-[#F0F7FD] text-[#1A3C5D]">
       {/* Newsletter Top */}
@@ -33,13 +38,18 @@ export default function Footer() {
           className="max-w-xl mx-auto flex flex-col md:flex-row items-center gap-4"
         >
           <input
-            type="email"
+          value={email}
+          onChange={(e)=>{
+            setEmail(e.target.value)
+          }}
+          type="email"
             placeholder="Enter your email"
             className="w-full px-4 py-2 border rounded-md"
           />
           <motion.button
             whileHover={{ scale: 1.05 }}
             className="bg-[#2B72B8] text-white px-6 py-2 rounded-md"
+            onClick={handleSubmit}
           >
             Subscribe
           </motion.button>
@@ -69,7 +79,7 @@ export default function Footer() {
             <FaTwitter className="hover:text-[#074B78] transition" />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/jaswinderwaliaa/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -118,13 +128,18 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-3">FinQure NEWSLETTER SIGNUP</h4>
           <input
-            type="email"
+          value={email}
+          onChange={(e)=>{
+            setEmail(e.target.value)
+          }}
+          type="email"
             placeholder="Email"
             className="w-60 px-3 py-2 rounded text-white border-white border"
           />
           <motion.button
             whileHover={{ scale: 1.05 }}
             className="mt-2 ml-5 bg-[#2B72B8] text-white px-4 py-2 rounded"
+            onClick={handleSubmit}
           >
             Send
           </motion.button>

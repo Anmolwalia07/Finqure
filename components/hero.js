@@ -4,14 +4,11 @@ import { useState } from "react";
 
 
 export default function Hero() {
-const [copied, setCopied] = useState(false);
 
-  const copyNumber = () => {
-    navigator.clipboard.writeText("+91 9876781726").then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
+  const scheduleMeet = () => {
+  window.location.href = "mailto:anmolwalia025@gmail.com?subject=Meeting%20Request&body=Hi,%20I%20would%20like%20to%20schedule%20a%20meeting.";
+};
+
   return (
     <section
       className="bg-gradient-to-r from-[#C1DAED] to-[#dddddda7] px-6 md:px-20 lg:px-40 py-15"
@@ -46,6 +43,7 @@ const [copied, setCopied] = useState(false);
             className="mt-6 px-6 py-3 bg-[#1A3C5D] text-white font-semibold rounded-md hover:bg-[#15405e] transition cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={scheduleMeet}
           >
             Schedule a Meet
       </motion.button>
@@ -58,7 +56,9 @@ const [copied, setCopied] = useState(false);
     >
      
       <motion.p
-        onClick={copyNumber}
+        onClick={()=>{
+          window.location.href="tel:+91 9876781726"
+        }}
         className="text-lg sm:text-xl font-bold tracking-wider text-[#1A3C5D] cursor-pointer "
         title="Click to copy"
         whileTap={{ scale: 0.95 }}
