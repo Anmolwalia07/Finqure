@@ -1,4 +1,5 @@
 "use client"
+import axios from "axios";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
@@ -9,9 +10,11 @@ import {
 
 export default function Footer() {
   const [email, setEmail] = useState("")
-  const handleSubmit=(e)=>{
-    console.log(email)
-    setEmail("")
+  const handleSubmit=async(e)=>{
+    const subscriber=await axios.post("/api/email",{email})
+    if(subscriber.data){
+     setEmail("")
+    } 
   }
   return (
     <footer className="bg-[#F0F7FD] text-[#1A3C5D]">
