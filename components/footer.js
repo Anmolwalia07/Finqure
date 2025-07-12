@@ -1,5 +1,6 @@
 "use client"
 import axios from "axios";
+import confetti from "canvas-confetti";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
@@ -14,6 +15,11 @@ export default function Footer() {
     const subscriber=await axios.post("/api/email",{email})
     if(subscriber.data){
      setEmail("")
+      confetti({
+      particleCount: 150,
+      spread: 80,
+      origin: { y: 0.6 },
+      });
     } 
   }
   return (
