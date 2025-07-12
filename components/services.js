@@ -1,86 +1,168 @@
+"use client";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  FaHome,
+  FaUserAlt,
+  FaBriefcase,
+  FaMotorcycle,
+  FaCar,
+  FaTruck,
+} from "react-icons/fa";
+
 export default function Services() {
-  const services = [
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const loanServices = [
     {
-      category: "Insurance",
-      items: [
-        { name: "Bike Insurance", icon: "🚲" },
-        { name: "Car Insurance", icon: "🚗" },
-      ],
+      icon: <FaBriefcase />,
+      title: "Business Loan",
+      description:
+        "Flexible funding to support your startup, expand your company, or meet working capital needs.",
     },
     {
-      category: "Loan",
-      items: [
-        { name: "Business Loan", icon: "🏢" },
-        { name: "Personal Loan", icon: "🙋‍♂️" },
-        { name: "Home Loan", icon: "🏠" },
-      ],
+      icon: <FaHome />,
+      title: "Home Loan",
+      description:
+        "Affordable home loans with attractive interest rates and flexible EMIs for your dream house.",
+    },
+    {
+      icon: <FaUserAlt />,
+      title: "Personal Loan",
+      description:
+        "Quick and easy personal loans for your travel, wedding, or emergency expenses.",
     },
   ];
 
+  const insuranceServices = [
+    {
+      icon: <FaMotorcycle />,
+      title: "Bike Insurance",
+      description:
+        "Comprehensive coverage for your two-wheeler against theft, damage, and third-party risks.",
+    },
+    {
+      icon: <FaCar />,
+      title: "Car Insurance",
+      description:
+        "Reliable car insurance plans that protect you against accidents, damage, and legal liabilities.",
+    },
+    {
+      icon: <FaTruck />,
+      title: "Truck Insurance",
+      description:
+        "Tailored insurance solutions for commercial trucks to safeguard your logistics business.",
+    },
+  ];
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <div className="py-16 px-4 sm:px-6 bg-gradient-to-br from-[#f0f9ff] to-[#e6f7ff]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-[#1A3C5D] mb-3">
-            Our Premium Services
-          </h2>
-          <div className="w-24 h-1.5 bg-[#3072B8] mx-auto rounded-full mb-4"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover tailored solutions designed to protect your assets and help you achieve your financial goals.
-          </p>
+    <motion.section
+      ref={ref}
+      id="services"
+      className="px-6 md:px-20 lg:px-40 py-20 bg-[#F0F7FD]"
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={containerVariants}
+    >
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: -20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-4xl font-bold text-[#1A3C5D]">Our Services</h2>
+        <p className="mt-2 text-gray-600 text-lg">
+          Tailored solutions to help you meet financial goals with ease and
+          confidence.
+        </p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-2 gap-12">
+        {/* Loans */}
+        <div>
+          <h3 className="text-2xl font-semibold text-[#3072B8] mb-6 border-b pb-2">
+            Loans
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {loanServices.map((service, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.03 }}
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
+              >
+                <div className="text-4xl text-[#1A3C5D] mb-4">
+                  {service.icon}
+                </div>
+                <h4 className="text-xl font-semibold text-[#1A3C5D] mb-2">
+                  {service.title}
+                </h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  {service.description}
+                </p>
+                <button
+                  className="text-[#3072B8] font-semibold hover:underline"
+                  onClick={() => {
+                    window.location.href = "tel:9876781726";
+                  }}
+                >
+                  Apply Now
+                </button>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((section, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-            >
-              <div className="bg-gradient-to-r from-[#3072B8] to-[#1A3C5D] p-5">
-                <h3 className="text-2xl font-bold text-white flex items-center">
-                  <span className="mr-3 bg-white/20 p-2 rounded-lg">{section.category}</span>
-                </h3>
-              </div>
-              
-              <div className="p-6">
-                <ul className="space-y-4">
-                  {section.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-4 p-4 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
-                    >
-                      <span className="text-3xl bg-blue-100 group-hover:bg-blue-200 p-3 rounded-lg transition-colors duration-300">
-                        {item.icon}
-                      </span>
-                      <div>
-                        <h4 className="font-semibold text-lg text-gray-800">{item.name}</h4>
-                        <p className="text-gray-600 text-sm mt-1">
-                          {item.name.includes("Insurance") 
-                            ? "Comprehensive coverage options" 
-                            : "Competitive rates and flexible terms"}
-                        </p>
-                      </div>
-                      <span className="ml-auto text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        →
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button className="mt-6 w-full py-3 bg-white border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors duration-300">
-                  View all {section.category} options
+        {/* Insurance */}
+        <div>
+          <h3 className="text-2xl font-semibold text-[#3072B8] mb-6 border-b pb-2">
+            Insurance
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {insuranceServices.map((service, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.03 }}
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
+              >
+                <div className="text-4xl text-[#1A3C5D] mb-4">
+                  {service.icon}
+                </div>
+                <h4 className="text-xl font-semibold text-[#1A3C5D] mb-2">
+                  {service.title}
+                </h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  {service.description}
+                </p>
+                <button
+                  className="text-[#3072B8] font-semibold hover:underline"
+                  onClick={() => {
+                    window.location.href = "tel:9876781726";
+                  }}
+                >
+                  Get Quote
                 </button>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <div className="mt-16 text-center">
-          <button className="px-8 py-3.5 bg-gradient-to-r from-[#3072B8] to-[#1A3C5D] text-white font-medium rounded-full shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105">
-            Explore All Services
-          </button>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </motion.section>
   );
 }

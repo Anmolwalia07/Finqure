@@ -14,7 +14,7 @@ export default function Home() {
     <Hero/>
     <Tagline/>
     <Features/>
-    {/* <Services/> */}
+    <Services/>
     <Goals/>
     <Lines/>
     <Footer/>
