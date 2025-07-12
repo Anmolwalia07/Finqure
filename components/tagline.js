@@ -1,31 +1,47 @@
+"use client"
 import { FaMoneyCheckAlt, FaUsers, FaCreditCard, FaFileInvoiceDollar } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const taglines = [
+  {
+    icon: <FaMoneyCheckAlt className="text-4xl" />,
+    text: "Fast Approvals",
+  },
+  {
+    icon: <FaUsers className="text-4xl" />,
+    text: "400+ Customers",
+  },
+  {
+    icon: <FaCreditCard className="text-4xl" />,
+    text: "Flexible Payments",
+  },
+  {
+    icon: <FaFileInvoiceDollar className="text-4xl" />,
+    text: "No Prepayment Fees",
+  },
+];
 
 export default function Tagline() {
   return (
-    <div className="bg-[#074B78] text-white py-9 flex justify-around items-center flex-wrap gap-4 px-10">
-      {/* Fast Approvals */}
-      <div className="flex items-center gap-2">
-        <FaMoneyCheckAlt className="text-4xl" />
-        <span className="text-2xl">Fast Approvals</span>
+    <motion.div
+      className="bg-[#074B78] text-white py-9 px-6 md:px-10"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-items-center items-center">
+        {taglines.map((item, index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            {item.icon}
+            <span className="text-lg md:text-xl font-medium">{item.text}</span>
+          </motion.div>
+        ))}
       </div>
-
-      {/* 400000 Customers */}
-      <div className="flex items-center gap-2">
-        <FaUsers className="text-4xl" />
-        <span className="text-2xl">400+ Customers</span>
-      </div>
-
-      {/* Flexible Payments */}
-      <div className="flex items-center gap-2">
-        <FaCreditCard className="text-4xl" />
-        <span className="text-2xl">Flexible Payments</span>
-      </div>
-
-      {/* No Prepayment Fees */}
-      <div className="flex items-center gap-2">
-        <FaFileInvoiceDollar className="text-4xl" />
-        <span className="text-2xl">No Prepayment Fees</span>
-      </div>
-    </div>
+    </motion.div>
   );
 }
