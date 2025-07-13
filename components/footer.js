@@ -23,7 +23,7 @@ export default function Footer() {
     } 
   }
   return (
-    <footer className="bg-[#F0F7FD] text-[#1A3C5D]">
+    <footer className="bg-[#F0F7FD] text-[#1A3C5D]" id="newsletter">
       {/* Newsletter Top */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

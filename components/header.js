@@ -25,9 +25,11 @@ export default function Header() {
         {/* Right Section */}
         <div className="hidden md:flex items-center gap-4">
           <div className="w-fit h-fit p-1 bg-[#034467] rounded-full flex justify-center items-center">
-            <PiTelegramLogoLight className="text-white text-2xl" />
+           <a href="#newsletter"><PiTelegramLogoLight className="text-white text-2xl"/></a>
           </div>
-          <button className="bg-[#034467] text-white px-4 py-2 rounded">
+          <button className="bg-[#034467] text-white px-4 py-2 rounded" onClick={()=>{
+          window.location.href="tel:+91 9876781726"
+          }}>
             Contact Us
           </button>
         </div>
@@ -56,9 +58,11 @@ export default function Header() {
           </ul>
           <div className="flex items-center gap-4 pt-4 ">
             <div className="w-fit h-fit p-1 bg-[#034467] rounded-full flex justify-center items-center">
-              <PiTelegramLogoLight className="text-white text-2xl" />
+           <a href="#newsletter"><PiTelegramLogoLight className="text-white text-2xl"/></a>
             </div>
-            <button className="bg-[#034467] text-white px-4 py-2 rounded w-full">
+            <button className="bg-[#034467] text-white px-4 py-2 rounded w-full" onClick={()=>{
+          window.location.href="tel:+91 9876781726"
+          }}>
               Contact Us
             </button>
           </div>

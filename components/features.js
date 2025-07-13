@@ -160,8 +160,8 @@ export default function Features() {
                     whileTap={{ scale: 0.98 }}
                     className="group flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition-colors"
                   >
-                    <span>Learn more</span>
-                    <FiArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+                    {/* <span>Learn more</span> */}
+                    {/* <FiArrowRight className="ml-2 transition-transform group-hover:translate-x-1" /> */}
                   </motion.button>
                 </div>
               </div>

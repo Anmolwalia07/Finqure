@@ -84,10 +84,11 @@ export default function Lines() {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <button className="px-5 py-2 bg-[#1A3C5D] text-white rounded-md hover:bg-[#15405e] transition font-medium text-sm sm:text-base">
-              Explore Loan Options
+           <a href="#services">Explore Loan Options</a>
+
             </button>
             <button className="px-5 py-2 bg-[#1A3C5D] text-white rounded-md hover:bg-[#15405e] transition font-medium text-sm sm:text-base">
-              Get Insurance Quote
+              <a href="#insurance">Get Insurance Quote</a>
             </button>
           </motion.div>
         </motion.div>

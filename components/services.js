@@ -130,7 +130,7 @@ export default function Services() {
 
         {/* Insurance */}
         <div>
-          <h3 className="text-2xl font-semibold text-[#3072B8] mb-6 border-b pb-2">
+          <h3 className="text-2xl font-semibold text-[#3072B8] mb-6 border-b pb-2" id="insurance">
             Insurance
           </h3>
           <div className="grid sm:grid-cols-2 gap-6">
