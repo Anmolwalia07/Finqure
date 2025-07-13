@@ -13,7 +13,7 @@ const [modal, setModal] = useState(false);
      const body = encodeURIComponent(
       `Hi, I would like to schedule a meeting on [your date] at [your time].`
     );
-    window.location.href = `mailto:anmolwalia025@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:jaswinderw15@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const handleSendEmail=()=>{
